@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ profile_user.username }}'s Profile</title>
+</head>
+<body>
+
+    <h1>{{ profile_user.username }}'s Profile</h1>
+
+    <hr>
+
+    <h2>Public Blogs</h2>
+
+    {% for blog in blogs %}
+
+        <h3>
+            <a href="{% url 'blog_detail' blog.id %}">
+                {{ blog.title }}
+            </a>
+        </h3>
+
+        <p>{{ blog.created_at }}</p>
+
+        <hr>
+
+    {% empty %}
+
+        <p>This user hasn't published any public blogs yet.</p>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="{% url 'explore_blogs' %}">
+        Back to Explore
+    </a>
+
+</body>
+</html>

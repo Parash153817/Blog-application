@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Blog</title>
+</head>
+<body>
+
+    <h2>Edit Your Blog</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Blog Title:</label>
+        <br>
+
+        <input
+            type="text"
+            name="title"
+            value="{{ blog.title }}"
+            required
+        >
+
+        <br><br>
+
+        <label>Blog Content:</label>
+        <br>
+
+        <textarea
+            name="content"
+            rows="30" cols="150"
+            required
+        >{{ blog.content }}</textarea>
+
+        <br><br>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+
+    <br>
+
+    <a href="{% url 'blog_detail' blog.id %}">
+        Cancel
+    </a>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+\
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <h2>Welcome {{ user }}</h2>
+
+    <h3>My Blogs</h3>
+
+    {% for blog in blogs %}
+
+    <h4>
+        <a href="{% url 'blog_detail' blog.id %}">
+            {{ blog.title }}
+        </a>
+    </h4>
+
+{% empty %}
+
+    <p>You haven't written any blogs yet.</p>
+
+{% endfor %}
+
+    <br>
+
+    <a href="{% url 'create_blog' %}">
+        Create New Blog
+    </a>
+
+    <br><br>
+
+    <a href="{% url 'explore_blogs' %}">
+      Explore Public Blogs
+</a>
+
+<br><br><br>
+
+    <a href="{% url 'logout' %}">Logout</a>
+    
+
+</body>
+</html>

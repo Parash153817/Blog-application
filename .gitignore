@@ -1,0 +1,35 @@
+Python cache files
+
+pycache/ *.py[cod] *$py.class
+
+Virtual environment
+
+venv/ env/ .venv/
+
+Django files
+
+*.log local_settings.py
+
+Environment variables and secrets
+
+.env .env.* !.env.example
+
+Database
+
+db.sqlite3 db.sqlite3-journal
+
+IDE settings
+
+.vscode/ .idea/
+
+Operating system files
+
+.DS_Store Thumbs.db
+
+Test and coverage files
+
+.coverage htmlcov/ .pytest_cache/
+
+Build files
+
+build/ dist/ *.egg-info/

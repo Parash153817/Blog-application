@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore Blogs</title>
+</head>
+<body>
+
+    <h1>Explore Public Blogs</h1>
+
+    {% for blog in blogs %}
+
+        <h3>
+            <a href="{% url 'blog_detail' blog.id %}">
+                {{ blog.title }}
+            </a>
+        </h3>
+
+        <p> Written by:
+        <a href="{% url 'profile' blog.user.id %}">
+        {{ blog.user.username }}
+        </a>
+
+        </p>
+
+        <p>
+            Created at: {{ blog.created_at }}
+        </p>
+
+        <hr>
+
+    {% empty %}
+
+        <p>No public blogs available yet.</p>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="{% url 'dashboard' %}">
+        Back to Dashboard
+    </a>
+
+</body>
+</html>
